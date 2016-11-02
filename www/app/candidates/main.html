@@ -17,24 +17,34 @@
        </h3>
     </div>
     <div ng-if="!working && currentCandidate">
+        <div ng-if='match'>
+            <h1>
+                IT'S A MATCH!!!
+            </h1>
+        </div>
+
         <div class='face-card'>
             <!-- TODO - standardize size of cards -->
             <img ng-src="{{currentCandidate.photo_link}}" />
             <h5>
                 {{currentCandidate.first_name}} {{currentCandidate.last_name}}
             </h5>
-            <p>
-                birthdate: {{currentCandidate.birth_date}}
-            </p>
-            <p>
-                company: {{currentCandidate.employer}}
-            </p>
-            <p>
-                industry: {{currentCandidate.industry}}
-            </p>
-            <p>
-                job: {{currentCandidate.job_title}}
-            </p>
+            <ul>
+                <li>
+                    birthdate: {{currentCandidate.birth_date}}
+                </li>
+                <li>
+                    company: {{currentCandidate.employer}}
+                </li>
+                <li>
+                    industry: {{currentCandidate.industry}}
+                </li>
+                <li>
+                    job: {{currentCandidate.job_title}}
+                </li>
+
+            </ul>
+
         </div>
         <div class="row like-button-row">
             <div class="col-xs-5">

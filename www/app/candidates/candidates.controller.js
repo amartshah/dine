@@ -5,10 +5,12 @@ var CandidatesController = function($scope, CandidatesService) {
         error: undefined,
         working: false
     }
+    $scope.match = undefined;
     $scope.candidates = [];
     $scope.currentCandidate = undefined;
 
     $scope.getNextSetOfMatches = function() {
+        $scope.state.working = true;
         CandidatesService.getNextSetOfMatches(
             //successCallback
             function(value) {
@@ -27,7 +29,12 @@ var CandidatesController = function($scope, CandidatesService) {
 
     $scope.swipeRight = function() {
         CandidatesService.swipeRight();
-        moveToNextCandidate();
+        if($scope.currentCandidate.likes && $scope.match == undefined){
+            $scope.match = $scope.currentCandidate
+        }else{
+            $scope.match = undefined;
+            moveToNextCandidate();
+        }
     }
 
     $scope.swipeLeft = function() {
