@@ -4,59 +4,69 @@
   <meta charset="utf8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  <title>My Steroids App</title>
+  <title>Dine</title></title>
 
-  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css">
+  <!-- <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" title="supersonic-styles"> -->
   <link rel="stylesheet" href="/stylesheets/application.css">
+  <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css">
+
   <link rel="import" href="/components/supersonic/components/import.html">
 
+  <!--Third party dependenceis-->
   <script src="http://localhost/cordova.js"></script>
   <script src="/components/steroids-js/steroids.js"></script>
+  <script src="/components/jquery/dist/jquery.js"></script>
+  <script src="/components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="/components/angular/angular.js"></script>
   <script src="/components/supersonic/supersonic.js"></script>
   <script src="/components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="/components/angular-route/angular-route.js"></script>
+  <script src="/components/angular-resource/angular-resource.js"></script>
 
-  <script src="/scripts/application.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap.js"></script>
+
+
+  <!--our code-->
+  <script src="/app/app.module.js"></script>
+  <script src="/app/app.config.js"></script>
+  <script src="/app/app.controller.js"></script>
+  <script src="/app/services/app.services.js"></script>
+  <script src="/app/matches/matches.controller.js"></script>
+  <script src="/app/candidates/candidates.controller.js"></script>
+  <script src="/app/account/account.controller.js"></script>
+
 </head>
-<body ng-app="SteroidsApplication">
-
-<div class="padding" ng-controller="IndexController">
+<body ng-app="dine" id='main-app'>
+<div ng-controller="AppController">
 
   <super-navbar>
-    <super-navbar-title ng-bind="navbarTitle">
+    <super-navbar-button ng-bind='backText' ng-click="goBack()">
+    </super-navbar-button>
+    <super-navbar-title ng-bind="tabs[activeTabIndex].text">
     </super-navbar-title>
   </super-navbar>
 
-  <p>Awesome! This file is located at <strong>www/index.html</strong> &mdash; open it, change some text, save the file, and press enter in the Terminal window running <strong>$ steroids connect</strong>. The changes are updated to all connected devices. Cool, ain't it?</p>
 
-  <h3>Using the Scanner App</h3>
-
-  <p>On iOS, to restart your current app or scan another app, <strong>tap and hold on the screen with three fingers.</strong>. This opens the Scanner context menu.</p>
-
-  <p>On Android, press the native back button to return to the scan screen.</p>
-
-  <h3>Working with AngularJS</h3>
-
-  <p>Angular works great with Supersonic native components. Changing the input field below will automatically update the navigation bar title.</p>
-
-  <div class="card padding">
-    <h4>Navigation Bar Title (Look Up!)</h4>
-    <label class="item item-input">
-      <input type="text" ng-model="navbarTitle">
-    </label>
+  <div class="view-container">
+    <div ng-view class="view-frame"></div>
   </div>
 
-  <p>You can find the AngularJS controller used at:</p>
 
-  <p><strong><small>www/scripts/application.js</small></strong></p>
+  <nav class="navbar-fixed-bottom">
+    <div class="clips-navbar">
+      <ul>
+        <li ng-repeat="tab in tabs" class={{tab.class}}>
+          <span class={{tab.glyph}}></span>
+          <a href={{tab.link}} ng-click="changeTabs(tab.index)" >
+            {{tab.text}}
+          </a>
+        </li>
+      </ul>
 
-  <h2>Get in touch with us!</h2>
-
-  <p>Learn more about building apps with Supersonic at <a onclick="supersonic.app.openURL('http://docs.appgyver.com')" href="">http://docs.appgyver.com</a>.</p>
-
-  <p>Feel free to contact us at <a onclick="supersonic.app.openURL('mailto:contact@appgyver.com')" href="">contact@appgyver.com</a>, we would love to get your feedback!</p>
-
+    </div>
+  </nav>
 </div>
+
 
 </body>
 </html>
