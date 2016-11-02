@@ -25,18 +25,6 @@ $ios-theme-color: #00B5FF;
   text-align: center;
 }
 
-#top-{
-    text-align: center;
-    height: 53px;
-    position: fixed;
-    display: block;
-    position: fixed;
-    right: 0;
-    left: 0;
-    z-index: 1030;
-    background-color: white;
-}
-
 
 
 
@@ -80,28 +68,34 @@ $ios-theme-color: #00B5FF;
     }
 }
 
-#coupon-container{
-  margin-top: 50px;
+
+.face-card {
+    margin-top: 5%;
+    background: white;
+    border-color: #ccc;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 12px;
+    img {
+        width: 90%;
+        margin: 5%;
+        border-radius: 12px;
+        border-style: solid;
+        border-color: #ccc;
+        border-width: 1px;
+    }
 }
 
-#coupon-search-bar-container{
-    width: 95%;
-    margin-top:10px;
-    margin-right: auto;
-    margin-left: auto;
-    position: fixed;
-    z-index: 100;
+.like-button-row{
+    margin-top: 20px;
+    height: 60px;
+    .btn{
+        width: 100%;
+        height: 50px;
+        font-size: large;
+    }
 }
 
-#coupon-search-bar{
-  width: 100%;
-  border-color: #ddd;
-  border-radius: 10px;
-  border-width: 2px;
-  border-style: solid;
-  margin-left: 10px;
-  box-shadow: none;
-}
 
 /* enable absolute positioning */
 .inner-addon {
@@ -122,124 +116,6 @@ $ios-theme-color: #00B5FF;
 /* add padding  */
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
-
-.qr-code{
-    width: 50%;
-    height: 50%;
-}
-
-.coupon-card{
-    margin: 10px 10px;
-    background-color: #fff;
-    img {
-        width: 80px;
-        height: 80px;
-        border-radius: 52px;
-        overflow: hidden;
-        margin-top: 7px;
-    }
-
-    .row{
-      margin-right: 0;
-      margin-left: 0;
-    }
-
-    .first-col{
-      padding-right: 0px
-    }
-
-    .last-col{
-      padding-right:0px;
-    }
-
-    .btn-in-col{
-      width: 100%
-    }
-
-    .card-button-col{
-      padding-top: 10px;
-      padding-left: 0px;
-      padding-right: 10px;
-      padding-bottom: 10px;
-    }
-
-    hr{
-      margin-top: 15px;
-      margin-bottom: 15px
-    }
-}
-
-.business-card{
-    margin: 10px 10px;
-    background-color: #fff;
-    img {
-        width: 80px;
-        height: 80px;
-        border-radius: 52px;
-        overflow: hidden;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .row{
-      margin-right: 0;
-      margin-left: 0;
-    }
-
-    h3{
-      margin-top:21px;
-    }
-
-    hr{
-      margin-top: 15px;
-      margin-bottom: 15px
-    }
-}
-
-.cards-header{
-  margin-right: 10px;
-  margin-left: 10px;
-  padding-top: 10px;
-  margin-bottom: 0px;
-}
-
-
-// deal with supersonic styling
-
-.coupon-scroll-area{
-    background-color: $grey-background;
-    padding-top: 1px;
-    padding-bottom: 50px;
-    height: 100%;
-}
-
-.business-detail-page{
-  .coupon-card{
-    margin: 10px 0px;
-    background-color: #fff;
-    padding-top: 5px;
-    padding-bottom: 5px;
-  }
-}
-
-
-
-.detail-page{
-
-    .content{
-        padding-top: 10px;
-    }
-
-    #header-image{
-        width: 100%;
-    }
-
-    .button-row{
-        .btn{
-            width: 100%
-        }
-    }
-}
 
 .bs-callout {
     padding: 20px;

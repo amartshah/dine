@@ -1,5 +1,49 @@
 <div class='container' id="candidates-page">
-  <h1>
-    {{test}}
-  </h1>
+    <div ng-if='state.error'>
+        <div class='bs-callout bs-callout-danger'>
+            <h3>ERROR</h3>
+            <p>{{error}}</p>
+        </div>
+    </div>
+    <div ng-if='!currentCandidate && !working'>
+        <button class='btn btn-primary' ng-click="getNextSetOfMatches()">
+            Start Swiping
+        </button>
+    </div>
+    <div ng-if='working'>
+        <h3>
+            Searching for people in the area...
+            <span class='glyphicon glyphicon-refresh spin'></span>
+       </h3>
+    </div>
+    <div ng-if="!working && currentCandidate">
+        <div class='face-card'>
+            <!-- TODO - standardize size of cards -->
+            <img ng-src="{{currentCandidate.photo_link}}" />
+            <h5>
+                {{currentCandidate.first_name}} {{currentCandidate.last_name}}
+            </h5>
+            <p>
+                birthdate: {{currentCandidate.birth_date}}
+            </p>
+            <p>
+                company: {{currentCandidate.employer}}
+            </p>
+            <p>
+                industry: {{currentCandidate.industry}}
+            </p>
+            <p>
+                job: {{currentCandidate.job_title}}
+            </p>
+        </div>
+        <div class="row like-button-row">
+            <div class="col-xs-5">
+                <button class='btn btn-danger ' ng-click="swipeLeft()">Nope</button>
+            </div>
+            <div class="col-xs-5 col-xs-offset-2">
+                <button class='btn btn-success' ng-click="swipeRight()">Like</button>
+            </div>
+        </div>
+
+    </div>
 </div>
