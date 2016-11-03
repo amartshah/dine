@@ -4,12 +4,12 @@
  ***********************************************************/
 
 navigation-bar {
-  background-color: #00B5FF;
-  color: #ffffff;
+  background-color: #f1f1f1;
+  color: red;
 }
 
 navigation-bar title {
-  color: #ffffff;
+  color: red;
   font-size: 18px;
   font-weight: 600;
 }

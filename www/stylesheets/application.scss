@@ -1,5 +1,5 @@
 $grey-background: #f1f1f1;
-$ios-theme-color: #00B5FF;
+$ios-theme-color: #ff9900;
 
 #main-app {
     height: 700px;
@@ -80,25 +80,25 @@ h4 {
     }
 
     li.active {
-        background-color: $ios-theme-color;
-
         .glyphicon {
-            color: white;
+            color: red;
         }
 
         a {
-            color: white;
+            color: red;
         }
     }
 }
 
 .face-card {
-    margin-top: 3%;
+    margin-top: 7%;
     background: #ddd;
     border-color: #ccc;
     border-width: 1px;
     border-style: solid;
     border-radius: 12px;
+    width: 94%;
+    margin-left: 3%;
 
     #candidate-name {
         font-size: x-large;
@@ -107,13 +107,13 @@ h4 {
     }
 
     img {
-        width: 80%;
-        height: 80%;
-        border-radius: 12px;
-        border-style: solid;
-        border-color: #ccc;
-        border-width: 1px;
-        margin: 5% 10%;
+        width: 100%;
+    border-radius: 12px;
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 1px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
     }
 }
 
