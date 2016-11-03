@@ -1,5 +1,5 @@
 /* recommended */
-var CandidatesController = function($scope, CandidatesService) {
+var CandidatesController = function($scope, $timeout,CandidatesService, UserService) {
     $scope.test = "Candidates Page Coming Soon!";
     $scope.state = {
         error: undefined,
@@ -8,6 +8,22 @@ var CandidatesController = function($scope, CandidatesService) {
     $scope.match = undefined;
     $scope.candidates = [];
     $scope.currentCandidate = undefined;
+    $scope.user = UserService.getUser();
+    var tryCount = 5;
+
+    var init = function(){
+        $scope.state.working = true;
+        tryCount--;
+        if($scope.user.id == -1){
+            if(tryCount > -1){
+                $timeout($scope.init, 200);
+            }else{
+                $scope.state.working = false;
+            }
+        }else{
+            $scope.getNextSetOfMatches();
+        }
+    }
 
     $scope.getNextSetOfMatches = function() {
         $scope.state.working = true;
@@ -29,34 +45,40 @@ var CandidatesController = function($scope, CandidatesService) {
 
     $scope.swipeRight = function() {
         CandidatesService.swipeRight();
-        if($scope.currentCandidate.likes && $scope.match == undefined){
+        if($scope.currentCandidate.likes){
             $scope.match = $scope.currentCandidate
         }else{
-            $scope.match = undefined;
-            moveToNextCandidate();
+            $scope.moveToNextCandidate();
         }
     }
 
     $scope.swipeLeft = function() {
         CandidatesService.swipeLeft();
-        moveToNextCandidate();
+        $scope.moveToNextCandidate();
     }
 
-    var moveToNextCandidate = function() {
+    $scope.moveToNextCandidate = function() {
         //TODO - load new candidates when a few left
         //TODO - handle when there are no more candidates
         $scope.currentCandidate = $scope.candidates.pop();
+        $scope.match = undefined;
         if (currentCandidate == undefined) {
             $scope.state.working = true;
 			//TODO -- get more peeps
         }
     }
 
+    $scope.viewProfile = function(){
+        console.log("viewProfile");
+    }
 
+
+
+    init();
 };
 
 angular
     .module('dine.candidates')
     .controller("CandidatesController", CandidatesController);
 
-CandidatesController.$inject = ['$scope', "CandidatesService"];
+CandidatesController.$inject = ['$scope', "$timeout","CandidatesService", "UserService"];

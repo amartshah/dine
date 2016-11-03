@@ -5,55 +5,64 @@
             <p>{{error}}</p>
         </div>
     </div>
-    <div ng-if='!currentCandidate && !working'>
-        <button class='btn btn-primary' ng-click="getNextSetOfMatches()">
-            Start Swiping
-        </button>
-    </div>
-    <div ng-if='working'>
+
+    <div ng-if='state.working'>
         <h3>
             Searching for people in the area...
-            <span class='glyphicon glyphicon-refresh spin'></span>
+            <span class='glyphicon glyphicon-refresh glyphicon-spin'></span>
        </h3>
     </div>
-    <div ng-if="!working && currentCandidate">
-        <div ng-if='match'>
-            <h1>
-                IT'S A MATCH!!!
-            </h1>
+    <div ng-if="!state.working">
+        <div ng-if='!currentCandidate'>
+            <button class='btn btn-primary' ng-click="getNextSetOfMatches()">
+                Refresh
+            </button>
         </div>
-
-        <div class='face-card'>
-            <!-- TODO - standardize size of cards -->
-            <img ng-src="{{currentCandidate.photo_link}}" />
-            <h5>
-                {{currentCandidate.first_name}} {{currentCandidate.last_name}}
-            </h5>
-            <ul>
-                <li>
-                    birthdate: {{currentCandidate.birth_date}}
-                </li>
-                <li>
-                    company: {{currentCandidate.employer}}
-                </li>
-                <li>
-                    industry: {{currentCandidate.industry}}
-                </li>
-                <li>
-                    job: {{currentCandidate.job_title}}
-                </li>
-
-            </ul>
-
-        </div>
-        <div class="row like-button-row">
-            <div class="col-xs-5">
-                <button class='btn btn-danger ' ng-click="swipeLeft()">Nope</button>
+        <div ng-if="currentCandidate">
+            <div ng-if='match' id='match-overlay'>
+                <h1>
+                    IT'S A MATCH!!!
+                </h1>
+                <img ng-scr="{{currentCandidate.photo_link}}" />
+                <button ng-click = "viewProfile()">
+                    View Profile
+                </button>
+                <button ng-click = "moveToNextCandidate()">
+                    Keep Swiping
+                </button>
             </div>
-            <div class="col-xs-5 col-xs-offset-2">
-                <button class='btn btn-success' ng-click="swipeRight()">Like</button>
+
+            <div class='face-card'>
+                <!-- TODO - standardize size of cards -->
+                <img ng-src="{{currentCandidate.photo_link}}" />
+                <h5>
+                    {{currentCandidate.first_name}} {{currentCandidate.last_name}}
+                </h5>
+                <ul>
+                    <li>
+                        birthdate: {{currentCandidate.birth_date}}
+                    </li>
+                    <li>
+                        company: {{currentCandidate.employer}}
+                    </li>
+                    <li>
+                        industry: {{currentCandidate.industry}}
+                    </li>
+                    <li>
+                        job: {{currentCandidate.job_title}}
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="row like-button-row">
+                <div class="col-xs-5">
+                    <button class='btn btn-danger ' ng-click="swipeLeft()">Nope</button>
+                </div>
+                <div class="col-xs-5 col-xs-offset-2">
+                    <button class='btn btn-success' ng-click="swipeRight()">Like</button>
+                </div>
             </div>
         </div>
-
     </div>
 </div>

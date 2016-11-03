@@ -22,6 +22,7 @@ appServices.factory('CandidatesService', ["$http", "UserService", "ConfigService
 
         if (user.id == -1) {
             failureCallback({
+				id: -1,
                 message: "user must be logged in"
             });
         }
