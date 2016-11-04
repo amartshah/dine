@@ -24,34 +24,36 @@
                     IT'S A MATCH!!!
                 </h1>
                 <img ng-scr="{{currentCandidate.photo_link}}" />
-                <button ng-click = "viewProfile()">
+                <button class='btn btn-default' ng-click="viewProfile()">
                     View Profile
                 </button>
-                <button ng-click = "moveToNextCandidate()">
+                <button class='btn btn-default' ng-click="moveToNextCandidate()">
                     Keep Swiping
                 </button>
             </div>
-
-            <div class='face-card'>
-                <!-- TODO - standardize size of cards -->
-                <img ng-src="{{currentCandidate.photo_link}}" />
-                <h4 id = 'candidate-name'>
-                    {{currentCandidate.first_name}} {{currentCandidate.last_name}}
-                </h4>
-                    <p>
-                        Education: {{currentCandidate.education}}
-                    </p>
-                    <p>
-                        {{currentCandidate.job_title}} at {{currentCandidate.employer}}
-                    </p>
-
-            </div>
-            <div class="row like-button-row">
-                <div class="col-xs-5 col-xs-offset-1">
-                    <button class='btn btn-danger ' ng-click="swipeLeft()">Nope</button>
+            <div id='swiping-zone' ng-class="{'blur-me':match}">
+                <div class='face-card'>
+                    <!-- TODO - standardize size of cards -->
+                    <img ng-src="{{currentCandidate.photo_link}}" />
+                    <h4 id='candidate-name'>
+                                    {{currentCandidate.first_name}} {{currentCandidate.last_name}}
+                                </h4>
+                    <div class="container">
+                        <p>
+                            Education: {{currentCandidate.education}}
+                        </p>
+                        <p>
+                            {{currentCandidate.job_title}} at {{currentCandidate.employer}}
+                        </p>
+                    </div>
                 </div>
-                <div class="col-xs-5">
-                    <button class='btn btn-success' ng-click="swipeRight()">Like</button>
+                <div class="row like-button-row">
+                    <div class="col-xs-5 col-xs-offset-1">
+                        <button class='btn btn-danger ' ng-click="swipeLeft()">Nope</button>
+                    </div>
+                    <div class="col-xs-5">
+                        <button class='btn btn-success' ng-click="swipeRight()">Like</button>
+                    </div>
                 </div>
             </div>
         </div>
