@@ -84,19 +84,19 @@ appServices.factory('CreateAccountService', ['$resource', function($resource) {
     });
 }]);
 
-appServices.factory('UserService', ['$http', function($http) {
-
-    // var user = {
-    // 	email: undefined,
-    //   username: undefined,
-    //   first_name: undefined,
-    //   last_name: undefined,
-    //   id: -1
-    // };
+appServices.factory('UserService', ['$http', "ConfigService", function($http, ConfigService) {
 
     var user = {
-        id: 2
-    }
+    	email: undefined,
+      username: undefined,
+      first_name: undefined,
+      last_name: undefined,
+      id: 9
+  };
+
+
+
+
 
     var login = function(email, password, success, failure) {
         var req = {
@@ -159,13 +159,34 @@ appServices.factory('UserService', ['$http', function($http) {
 
     };
 
+	var getAccount = function(successCallback, failureCallback){
+		var userId = 9;
+
+		var req = {
+            method: 'GET',
+            url: ConfigService.url + '/user/'+userId
+        }
+
+        $http(req).then(
+            function(value) {
+                console.log(value)
+                successCallback(value);
+            },
+            function(error) {
+                console.log(error)
+                failureCallback(error);
+            }
+        );
+	}
+
     var getUser = function() {
         return user;
     }
     return {
         login: login,
         getUser: getUser,
-        createAccount: createAccount
+        createAccount: createAccount,
+		getAccount: getAccount
     }
 }]);
 
