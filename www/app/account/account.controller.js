@@ -8,8 +8,19 @@ var AccountController = function($scope, UserService){
     };
 
     $scope.loc = navigator.geolocation.getCurrentPosition(function(position) {
-	$scope.lat = position.coords.latitude;
-	$scope.lon = position.coords.longitude
+	$scope.center = {
+	    lat: position.coords.latitude,
+	    lng: position.coords.longitude,
+	    zoom: 20
+	}
+
+	$scope.markers = {
+	    currentLoc: {
+		lat: $scope.center.lat,
+		lng: $scope.center.lng,
+		focus: true
+	    }
+	}
 //	do_something(position.coords.latitude, position.coords.longitude);
     });
 

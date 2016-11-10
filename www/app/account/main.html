@@ -16,10 +16,10 @@
 
 
         <img id = 'profile-image' ng-src="{{user.photo_link}}" />
-	<p>lat {{lat}}</p>
-	<p>lon {{lon}}</p>
-	<p>loc {{loc}}</p>
+
         <p>Education: {{user.education}}</p>
         <p>{{user.job_title}} at {{user.employer}}</p>
+	<leaflet lf-center="center" markers="markers" height="300px" width="300px"></leaflet>
+	{{center}}
     </div>
 </div>

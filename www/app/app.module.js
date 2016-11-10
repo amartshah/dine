@@ -4,19 +4,21 @@ angular.module('dine.account', []);
 
 
 
-angular.module('dine', ['supersonic',
-        'ngRoute',
-        'ngResource',
-        "ui.bootstrap",
-        'dine.matches',
-        'dine.candidates',
-        "dine.services",
-        "dine.account",
+angular.module('dine', [
+    'supersonic',
+    'ngRoute',
+    'ngResource',
+    "ui.bootstrap",
+    "leaflet-directive",
+    'dine.matches',
+    'dine.candidates',
+    "dine.services",
+    "dine.account",
 
-    ])
-    .controller('IndexController', function($scope, supersonic) {
+])
+       .controller('IndexController', function($scope, supersonic) {
 
-    });
+       });
 
 // app.filter('ageFilter', function() {
 //			function calculateAge(birthday) { // birthday is a date
