@@ -3,7 +3,7 @@
         <h3>
             Fetching your account...
             <span class='glyphicon glyphicon-refresh glyphicon-spin'></span>
-       </h3>
+	</h3>
     </div>
     <div ng-if='state.error'>
         <div class='bs-callout bs-callout-danger'>
@@ -14,9 +14,12 @@
     <div ng-if='user'>
         <h2 id = 'welcome-text'>Welcome {{user.first_name}} {{user.last_name}}</h2>
 
-         
-         <img id = 'profile-image' ng-src="{{user.photo_link}}" />
-         <p>Education: {{user.education}}</p>
-         <p>{{user.job_title}} at {{user.employer}}</p>
+
+        <img id = 'profile-image' ng-src="{{user.photo_link}}" />
+	<p>lat {{lat}}</p>
+	<p>lon {{lon}}</p>
+	<p>loc {{loc}}</p>
+        <p>Education: {{user.education}}</p>
+        <p>{{user.job_title}} at {{user.employer}}</p>
     </div>
 </div>
