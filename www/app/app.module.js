@@ -1,6 +1,7 @@
 angular.module('dine.candidates', []);
 angular.module('dine.matches', []);
 angular.module('dine.account', []);
+angular.module('dine.login', []);
 
 
 
@@ -12,6 +13,7 @@ angular.module('dine', ['supersonic',
         'dine.candidates',
         "dine.services",
         "dine.account",
+        "dine.login",
 
     ])
     .controller('IndexController', function($scope, supersonic) {

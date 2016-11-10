@@ -49,6 +49,7 @@
     <script src="/app/matches/matches.controller.js"></script>
     <script src="/app/candidates/candidates.controller.js"></script>
     <script src="/app/account/account.controller.js"></script>
+    <script src="/app/login/login.controller.js"></script>
 
 </head>
 
@@ -68,7 +69,7 @@
         </div>
 
 
-        <nav class="navbar-fixed-bottom">
+        <nav ng-if="loggedIn" class="navbar-fixed-bottom">
             <div class="clips-navbar">
                 <ul>
                     <li ng-repeat="tab in tabs" class={{tab.class}}>

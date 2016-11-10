@@ -1,12 +1,12 @@
 var appServices = angular.module('dine.services', []);
 
-appServices.factory("ConfigService", function(){
-	var backendUrl = "https://eecs-394-dine-backend.herokuapp.com";
-	//var backendUrl = localhost:3000
+appServices.factory("ConfigService", function() {
+    var backendUrl = "https://eecs-394-dine-backend.herokuapp.com";
+    //var backendUrl = localhost:3000
 
-	return{
-		url: backendUrl
-	}
+    return {
+        url: backendUrl
+    }
 })
 
 
@@ -22,7 +22,7 @@ appServices.factory('CandidatesService', ["$http", "UserService", "ConfigService
 
         if (user.id == -1) {
             failureCallback({
-				id: -1,
+                id: -1,
                 message: "user must be logged in"
             });
         }
@@ -87,21 +87,18 @@ appServices.factory('CreateAccountService', ['$resource', function($resource) {
 appServices.factory('UserService', ['$http', "ConfigService", function($http, ConfigService) {
 
     var user = {
-    	email: undefined,
-      username: undefined,
-      first_name: undefined,
-      last_name: undefined,
-      id: 9
-  };
+        email: undefined,
+        first_name: undefined,
+        last_name: undefined,
+        id: -1
+    };
 
-
-
-
+    var observerCallbacks = [];
 
     var login = function(email, password, success, failure) {
         var req = {
                 method: 'GET',
-                url: 'https://eecs394-clips-backend.herokuapp.com/login',
+                url: ConfigService.url + "/login",
                 params: {
                     email: email,
                     password: password
@@ -111,18 +108,9 @@ appServices.factory('UserService', ['$http', "ConfigService", function($http, Co
         $http(req).then(
             function(value) {
                 console.log(value)
-                if (value.data.user_data) {
-                    user.first_name = value.data.user_data.first_name;
-                    user.last_name = value.data.user_data.last_name;
-                    user.username = value.data.user_data.username;
-                    user.id = value.data.user_data.id;
-                    user.email = value.data.user_data.email;
-                    user.error = undefined;
-                } else {
-                    user.error = "Your password and email combination was not found."
-                    user.id = -1;
-                }
+				user = value.data[0];
                 success(user);
+                notifyObservers();
             },
             function(error) {
                 failure(error);
@@ -159,34 +147,52 @@ appServices.factory('UserService', ['$http', "ConfigService", function($http, Co
 
     };
 
-	var getAccount = function(successCallback, failureCallback){
-		var userId = 9;
+    var getAccount = function(successCallback, failureCallback) {
+        var userId = 9;
 
-		var req = {
+        var req = {
             method: 'GET',
-            url: ConfigService.url + '/user/'+userId
+            url: ConfigService.url + '/user/' + userId
         }
 
         $http(req).then(
             function(value) {
                 console.log(value)
+				user = value.data[0];
                 successCallback(value);
+                notifyObservers();
             },
             function(error) {
                 console.log(error)
                 failureCallback(error);
             }
         );
-	}
+    }
+    //register an observer
+    var registerObserverCallback = function(callback) {
+        observerCallbacks.push(callback);
+    };
 
+    //call this when you know 'foo' has been changed
+    var notifyObservers = function() {
+        angular.forEach(observerCallbacks, function(callback) {
+            callback();
+        });
+    };
     var getUser = function() {
         return user;
     }
+
+	var isLoggedIn = function(){
+		return user.id !== -1;
+	}
     return {
         login: login,
         getUser: getUser,
         createAccount: createAccount,
-		getAccount: getAccount
+        getAccount: getAccount,
+        isLoggedIn: isLoggedIn,
+        registerObserverCallback: registerObserverCallback
     }
 }]);
 

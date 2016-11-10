@@ -13,16 +13,8 @@ var CandidatesController = function($scope, $timeout,CandidatesService, UserServ
 
     var init = function(){
         $scope.state.working = true;
-        tryCount--;
-        if($scope.user.id == -1){
-            if(tryCount > -1){
-                $timeout($scope.init, 200);
-            }else{
-                $scope.state.working = false;
-            }
-        }else{
-            $scope.getNextSetOfMatches();
-        }
+        $scope.getNextSetOfMatches();
+
     }
 
     $scope.getNextSetOfMatches = function() {

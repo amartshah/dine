@@ -1,5 +1,5 @@
 /* recommended */
-var AppController = function($scope, $location, NavBarService){
+var AppController = function($scope, $location, NavBarService, UserService){
 
     $scope.test = 'test text';
     $scope.activeTabIndex = 1;
@@ -9,7 +9,8 @@ var AppController = function($scope, $location, NavBarService){
         businesses: false
     };
     $scope.backText = undefined;
-
+    $scope.loggedIn=undefined;
+    $scope.isLoggedIn = UserService.isLoggedIn();
 
     $scope.tabs = [
         {
@@ -48,9 +49,17 @@ var AppController = function($scope, $location, NavBarService){
             $scope.backText = undefined;
 
         }else{
-            $scope.tabs[$scope.activeTabIndex].link = next;
+            $scope.tabs[$sc$scope.ope.activeTabIndex].link = next;
             $scope.back[$scope.activeTabName] = true;
             $scope.backText = 'back'
+        }
+    }
+
+    var updateUser = function(user){
+        var oldLoggedIn = $scope.isLogged;
+        $scope.loggedIn=UserService.isLoggedIn();
+        if(oldLoggedIn !== $scope.loggedIn){
+            $scope.changeTabs(0);
         }
     }
 
@@ -59,6 +68,7 @@ var AppController = function($scope, $location, NavBarService){
     }
 
     NavBarService.registerObserverCallback(refreshNavBar);
+    UserService.registerObserverCallback(updateUser);
 
 
     var init = function(){
@@ -80,4 +90,4 @@ angular
     .module('dine')
     .controller("AppController", AppController);
 
-AppController.$inject = ['$scope', "$location", "NavBarService"];
+AppController.$inject = ['$scope', "$location", "NavBarService", "UserService"];
