@@ -21,7 +21,6 @@ var AccountController = function($scope, UserService){
 		focus: true
 	    }
 	}
-//	do_something(position.coords.latitude, position.coords.longitude);
     });
 
     UserService.getAccount(
