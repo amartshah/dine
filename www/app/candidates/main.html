@@ -32,18 +32,15 @@
                 </button>
             </div>
             <div id='swiping-zone' ng-class="{'blur-me':match}">
-                <div class='face-card'>
+                <div class='face-card' ng-repeat="candidate in candidates">
                     <!-- TODO - standardize size of cards -->
-                    <img ng-src="{{currentCandidate.photo_link}}" />
+                    <img ng-src="{{candidate.photo_link}}" />
                     <h4 id='candidate-name'>
-                                    {{currentCandidate.first_name}} {{currentCandidate.last_name}}
+                                    {{candidate.first_name}} {{candidate.last_name}}
                                 </h4>
-                    <div class="container">
+                    <div class="container".
                         <p>
-                            Education: {{currentCandidate.education}}
-                        </p>
-                        <p>
-                            {{currentCandidate.job_title}} at {{currentCandidate.employer}}
+                            {{candidate.job_title}} at {{candidate.employer}}
                         </p>
                     </div>
                 </div>

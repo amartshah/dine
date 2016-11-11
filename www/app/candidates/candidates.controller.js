@@ -7,7 +7,6 @@ var CandidatesController = function($scope, $timeout,CandidatesService, UserServ
     }
     $scope.match = undefined;
     $scope.candidates = [];
-    $scope.currentCandidate = undefined;
     $scope.user = UserService.getUser();
     var tryCount = 5;
 
@@ -23,7 +22,6 @@ var CandidatesController = function($scope, $timeout,CandidatesService, UserServ
             //successCallback
             function(value) {
                 $scope.candidates = value.data;
-                $scope.currentCandidate = $scope.candidates.pop();
                 $scope.state.working = false;
             },
             //failureCallback
@@ -49,16 +47,16 @@ var CandidatesController = function($scope, $timeout,CandidatesService, UserServ
         $scope.moveToNextCandidate();
     }
 
-    $scope.moveToNextCandidate = function() {
-        //TODO - load new candidates when a few left
-        //TODO - handle when there are no more candidates
-        $scope.currentCandidate = $scope.candidates.pop();
-        $scope.match = undefined;
-        if (currentCandidate == undefined) {
-            $scope.state.working = true;
-			//TODO -- get more peeps
-        }
-    }
+    // $scope.moveToNextCandidate = function() {
+    //     //TODO - load new candidates when a few left
+    //     //TODO - handle when there are no more candidates
+    //     $scope.currentCandidate = $scope.candidates.pop();
+    //     $scope.match = undefined;
+    //     if (currentCandidate == undefined) {
+    //         $scope.state.working = true;
+	// 		//TODO -- get more peeps
+    //     }
+    // }
 
     $scope.viewProfile = function(){
         console.log("viewProfile");
