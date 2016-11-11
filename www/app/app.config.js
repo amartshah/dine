@@ -19,6 +19,14 @@
                 templateUrl: "app/login/main.html",
                 controller: "LoginController"
             }).
+            when('/register', {
+                templateUrl: "app/register/main.html",
+                controller: "RegisterController"
+            }).
+            when('/register/profile', {
+                templateUrl: "app/register/profile.html",
+                controller: "RegisterProfileController"
+            }).
             otherwise({
                 redirectTo: '/login'
             });
@@ -29,7 +37,7 @@
             $rootScope.$on("$routeChangeStart", function(event, next, current) {
                 if ($rootScope.loggedInUser == null) {
                     // no logged user, we should be going to #login
-                    if (next.templateUrl == "login/main.html") {
+                    if (next.templateUrl == "app/login/main.html" || next.templateUrl=="app/register/main.html"|| next.templateUrl=="app/register/profile.html") {
                         // already going to #login, no redirect needed
                     } else {
                         // not going to #login, we should redirect now

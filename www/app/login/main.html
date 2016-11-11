@@ -1,4 +1,4 @@
-<div id='login-page' class="container">
+<div id='login-page' class="container  form-page">
     <div ng-if='user==undefined'>
         <form ng-submit="logIn()">
             <div class="form-group">
@@ -16,7 +16,17 @@
                     {{error}}
                 </p>
             </div>
+        </div>
 
+        <hr />
+
+        <div>
+            <p>
+                Don't have an account?
+            </p>
+            <a class='btn btn-default' href="#/register">
+                Register
+            </a>
         </div>
     </div>
 

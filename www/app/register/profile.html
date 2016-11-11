@@ -1,0 +1,44 @@
+<div class='container form-page' id="register-page">
+    <div ng-if="workingState == 'CREATING_ACCOUNT'">
+        <h3>
+            Creating your account
+            <span class='glyphicon glyphicon-refresh glyphicon-spin'></span>
+       </h3>
+    </div>
+    <div ng-if="workingState == 'LOGGING_IN'">
+        <h3>
+            Logging you in
+            <span class='glyphicon glyphicon-refresh glyphicon-spin'></span>
+       </h3>
+    </div>
+
+
+    <form ng-submit="createProfile()" id='profile-form' ng-if="workingState == undefined">
+        <div class="form-group">
+             <select class="form-control" ng-model="profileInfo.industry" ng-options="industry.name for industry in industries"></select>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="employer" placeholder="Enter Employer" ng-model="profileInfo.employer" ng-required="true">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="job_title" placeholder="Enter Job Title" ng-model="profileInfo.job_title" ng-required="true">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="education" placeholder="Enter Most Recent School" ng-model="profileInfo.education" ng-required="true">
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <div ng-if='error'>
+        <div class='bs-callout bs-callout-danger'>
+            <h3> ERROR </h3>
+            <p>
+                {{error}}
+            </p>
+        </div>
+
+    </div>
+
+
+
+</div>

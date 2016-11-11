@@ -22,7 +22,8 @@ var LoginController = function($scope, $location,$rootScope, UserService){
 
             //failureCallback
             function(error){
-                $scope.error = error;
+                $scope.error = error.message;
+                $scope.loginInfo.password =undefined;
             }
 
         )

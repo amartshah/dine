@@ -6,23 +6,6 @@ var AccountController = function($scope, $window, UserService){
       error: undefined,
       working: true
   };
-  if($scope.user == undefined){
-      UserService.getAccount(
-          //successCallback
-          function(value){
-              $scope.user = value.data[0];
-              $scope.state.working = false;
-          },
-          //failureCallback
-          function(error){
-              $scope.error = error;
-              $scope.state.working = false;
-          }
-      );
-  }else{
-      $scope.state.working = false;
-  }
-
 };
 
 angular
