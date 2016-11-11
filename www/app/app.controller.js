@@ -9,7 +9,6 @@ var AppController = function($scope, $location, NavBarService, UserService){
         businesses: false
     };
     $scope.backText = undefined;
-    $scope.loggedIn=undefined;
     $scope.isLoggedIn = UserService.isLoggedIn();
 
     $scope.tabs = [
@@ -56,9 +55,9 @@ var AppController = function($scope, $location, NavBarService, UserService){
     }
 
     var updateUser = function(user){
-        var oldLoggedIn = $scope.isLogged;
-        $scope.loggedIn=UserService.isLoggedIn();
-        if(oldLoggedIn !== $scope.loggedIn){
+        var oldLoggedIn = $scope.isLoggedIn;
+        $scope.isLoggedIn=UserService.isLoggedIn();
+        if(oldLoggedIn !== $scope.isLoggedIn){
             $scope.changeTabs(0);
         }
     }

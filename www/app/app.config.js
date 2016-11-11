@@ -28,7 +28,7 @@
                 controller: "RegisterProfileController"
             }).
             otherwise({
-                redirectTo: '/login'
+                redirectTo: '/candidates'
             });
 
         }])
