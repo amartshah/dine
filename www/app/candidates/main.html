@@ -13,17 +13,19 @@
        </h3>
     </div>
     <div ng-if="!state.working">
-        <div ng-if='!currentCandidate'>
+        <!-- <div ng-if='!currentCandidate'>
             <button class='btn btn-primary' ng-click="getNextSetOfMatches()">
                 Refresh
             </button>
-        </div>
-        <div ng-if="currentCandidate">
+        </div> -->
+        <div>
             <div ng-if='match' id='match-overlay'>
                 <h1>
                     IT'S A MATCH!!!
                 </h1>
-                <img ng-scr="{{currentCandidate.photo_link}}" />
+
+                <img ng-if="currentCandidate.photo_link" ng-src="{{currentCandidate.photo_link}}" />
+                <img ng-if="!currentCandidate.photo_link" src="http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg" />
                 <button class='btn btn-default' ng-click="viewProfile()">
                     View Profile
                 </button>
