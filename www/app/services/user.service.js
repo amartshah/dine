@@ -1,14 +1,37 @@
 var appServices = angular.module('dine.services');
 
-appServices.factory('UserService', ['$http', "ConfigService", function($http, ConfigService) {
+appServices.factory('UserService', ['$http', "ConfigService", '$rootScope', function($http, ConfigService, $rootScope) {
 
-    var user = {
+    // var user = {
+    //     email: undefined,
+    //     first_name: undefined,
+    //     last_name: undefined,
+    //     id: -1
+    // };
+    var user = undefined;
+    if (ConfigService.env == "dev"){
+        user = {
+            email: "mark.facebook.com",
+            first_name: "Mark",
+            last_name: "Zuckerberg",
+            id: 8,
+            employer: "facebook",
+            industry: "technology",
+            education: "self-educated",
+            photo_link: "https://s3.us-east-2.amazonaws.com/dine-profile-photos/mark-zuckerberg1.jpg",
+            job_title: "founder"
+        };
+
+        $rootScope.loggedInUser = user;
+    }
+    else{
+    user = {
         email: undefined,
         first_name: undefined,
         last_name: undefined,
         id: -1
     };
-
+    }
     var observerCallbacks = [];
 
     var login = function(email, password, success, failure) {

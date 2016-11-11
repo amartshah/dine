@@ -1,9 +1,11 @@
+
 var appServices = angular.module('dine.services');
+
 
 appServices.factory("ConfigService", function() {
     var backendUrl = "https://eecs-394-dine-backend.herokuapp.com";
     // var backendUrl = 'localhost:3000';
-
+    var env = "dev"
     var industries = [
         {name: "Banking"},
         {name: "Creative"},
@@ -23,6 +25,7 @@ appServices.factory("ConfigService", function() {
 
     return {
         url: backendUrl,
-        industries: industries
+        industries: industries, 
+        env: env
     }
 })
