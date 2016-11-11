@@ -21,6 +21,12 @@ var CandidatesController = function($scope, $timeout,CandidatesService, UserServ
         CandidatesService.getNextSetOfMatches(
             //successCallback
             function(value) {
+                for(var i = 0; i<value.data.length; i ++){
+                    if(value.data[i].photo_link == null || value.data[i].photo_link == undefined){
+                        value.data[i].photo_link = "http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg";
+                    }
+                }
+
                 $scope.candidates = value.data;
                 $scope.state.working = false;
             },
