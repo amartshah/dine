@@ -35,25 +35,29 @@
             <div id='swiping-zone' ng-class="{'blur-me':match}">
                 <div class='face-card' ng-repeat="candidate in candidates">
                     <!-- TODO - standardize size of cards -->
-                    <img ng-src="{{candidate.photo_link}}" />
-                    <h4 id='candidate-name'>
-                                    {{candidate.first_name}} {{candidate.last_name}}
-                                </h4>
-                    <div class="container".
+                    <div class="col-xs-4">
+                        <img ng-src="{{candidate.photo_link}}" />
+                    </div>
+
+                    <div class="container">
+                        <h4 id='candidate-name'>
+                            {{candidate.first_name}} {{candidate.last_name}}
+                        </h4>
                         <p>
                             {{candidate.job_title}} at {{candidate.employer}}
                         </p>
+                        <div class="row like-button-row">
+                           <div class="col-xs-5 col-xs-offset-1">
+                                <button class='btn btn-danger ' ng-click="swipeLeft()">Next</button>
+                            </div>
+                            <div class="col-xs-5">
+                                <button class='btn btn-success' ng-click="swipeRight()">Like</button>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-                <div class="row like-button-row">
-                    <div class="col-xs-5 col-xs-offset-1">
-                        <button class='btn btn-danger ' ng-click="swipeLeft()">Next</button>
-                    </div>
-                    <div class="col-xs-5">
-                        <button class='btn btn-success' ng-click="swipeRight()">Like</button>
-                    </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>
