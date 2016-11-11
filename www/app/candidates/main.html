@@ -24,7 +24,7 @@
                     IT'S A MATCH!!!
                 </h1>
 
-                <img  ng-src="{{currentCandidate.photo_link}}" />
+                <img ng-src="{{currentCandidate.photo_link}}" />
                 <button class='btn btn-default' ng-click="viewProfile()">
                     View Profile
                 </button>
@@ -35,31 +35,36 @@
             <div id='swiping-zone' ng-class="{'blur-me':match}">
                 <div class='face-card' ng-repeat="candidate in candidates">
                     <!-- TODO - standardize size of cards -->
-                    <div class="col-xs-4">
-                        <img ng-src="{{candidate.photo_link}}" />
-                    </div>
+                    <div class='row'>
+                        <div class="col-xs-3">
+                            <img ng-src="{{candidate.photo_link}}" />
+                        </div>
 
-                    <div class="container">
-                        <h4 id='candidate-name'>
-                            {{candidate.first_name}} {{candidate.last_name}}
-                        </h4>
-                        <p>
-                            {{candidate.job_title}} at {{candidate.employer}}
-                        </p>
-                        <div class="row like-button-row">
-                           <div class="col-xs-5 col-xs-offset-1">
+                        <div class="col-xs-7">
+                            <div class='row'>
+                                <p>
+                                    {{candidate.job_title}} at {{candidate.employer}}
+                                </p>
+                            </div>
+                            <div class='row'>
+                                <h4 id='candidate-name'>
+                                    {{candidate.first_name}} {{candidate.last_name}}
+                                </h4>
+                            </div>
+                        </div>
+                        <div class='col-xs-2 like-button-col'>
                                 <button class='btn btn-danger ' ng-click="swipeLeft()">
                                     <span class = "glyphicon glyphicon-remove"></span>
                                 </button>
-                            </div>
-                            <div class="col-xs-5">
-                                <button class='btn btn-success' ng-click="swipeRight()">    <span class = "glyphicon glyphicon-ok"></span>
+
+                                <button class='btn btn-success' ng-click="swipeRight()">
+                                    <span class = "glyphicon glyphicon-ok">
+                                    </span>
                                 </button>
-                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
         </div>
     </div>
 </div>

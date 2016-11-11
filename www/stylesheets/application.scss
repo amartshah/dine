@@ -44,15 +44,13 @@ h4 {
     }
 }
 
-.form-page{
-
+.form-page {
     margin-top: 15px;
 
     p {
         color: white;
     }
 }
-
 
 .clips-navbar {
     background-color: $grey-background;
@@ -122,25 +120,27 @@ h4 {
     opacity: 0.9;
 }
 
-#account-page{
+#account-page {
     #profile-image {
-    width: 80%;
-    margin-left: 10%
+        width: 80%;
+        margin-left: 10%;
     }
-    #welcome-text{
-    text-align: center;
+
+    #welcome-text {
+        text-align: center;
     }
 }
 
 .face-card {
-    margin-top: 7%;
+    margin-top: 5%;
     background: #ddd;
     border-color: #ccc;
     border-width: 1px;
     border-style: solid;
     border-radius: 12px;
-    width: 94%;
-    margin-left: 3%;
+    width: 96%;
+    height: 100px;
+    margin-left: 2%;
 
     #candidate-name {
         font-size: x-large;
@@ -149,25 +149,26 @@ h4 {
     }
 
     img {
-        width: 100%;
-        border-radius: 12px;
+        width: 70px;
+        height: 70px;
+        border-radius: 100px;
         border-style: solid;
         border-color: #ccc;
         border-width: 1px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        margin-left: 8px;
+        margin-top: 11px;
     }
 }
 
-.like-button-row {
-    height: 60px;
-
+.like-button-col {
+    padding-left: 0px;
     .btn {
-        width: 45px;
-        height: 45px;
+        width: 40px;
+        height: 40px;
         font-size: large;
         border-color: white;
         border-width: 2px;
+        margin-top: 2px;
         border-radius: 100px;
     }
 }
