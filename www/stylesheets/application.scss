@@ -1,14 +1,14 @@
-$grey-background: #f1f1f1;
-$ios-theme-color: #ff9900;
+$grey-background: #e8e9ea;
+$ios-theme-color: #1b75bc;
 
 #main-app {
     height: 700px;
-    background: red;
-    background: -webkit-linear-gradient(left top, red, #ff9900);
-    background: -o-linear-gradient(bottom right, red, #ff9900);
-    background: -moz-linear-gradient(bottom right, red, #ff9900);
-    background: linear-gradient(to bottom right, red, #ff9900);
-    background-color: #ab5f5f;
+    background: #1b75bc;
+    background: -webkit-linear-gradient(left top, #1b75bc, #e8e9ea);
+    background: -o-linear-gradient(bottom right, #1b75bc, #e8e9ea);
+    background: -moz-linear-gradient(bottom right, #1b75bc, #e8e9ea);
+    background: linear-gradient(to bottom right, #1b75bc, #e8e9ea);
+    background-color: #1b75bc;
 }
 
 h4 {
@@ -85,11 +85,11 @@ h4 {
 
     li.active {
         .glyphicon {
-            color: red;
+            color: #1b75bc;
         }
 
         a {
-            color: red;
+            color: #1b75bc;
         }
     }
 }
