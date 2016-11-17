@@ -5,7 +5,7 @@ var appServices = angular.module('dine.services');
 appServices.factory("ConfigService", function() {
     var backendUrl = "https://eecs-394-dine-backend.herokuapp.com";
     // var backendUrl = 'localhost:3000';
-    var env = "dev"
+    var env = "prod"
     var industries = [
         {name: "Banking"},
         {name: "Creative"},

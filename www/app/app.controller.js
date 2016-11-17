@@ -25,7 +25,7 @@ var AppController = function($scope, $location, NavBarService, UserService){
             link: '#candidates',
             default_link: "#candidates",
             class: 'passive',
-            glyph: "glyphicon glyphicon-piggy-bank",
+            glyph: "glyphicon glyphicon-th-list",
             index: 1
         },
         {
@@ -33,7 +33,7 @@ var AppController = function($scope, $location, NavBarService, UserService){
             link: '#matches',
             default_link: "#matches",
             class: 'passive',
-            glyph: "glyphicon glyphicon-shopping-cart",
+            glyph: "glyphicon glyphicon-cutlery",
             index: 2
         }
     ];
