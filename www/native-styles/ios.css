@@ -5,11 +5,11 @@
 
 navigation-bar {
   background-color: #f1f1f1;
-  color: red;
+  color: #1b75bc;
 }
 
 navigation-bar title {
-  color: red;
+  color: #1b75bc;
   font-size: 18px;
   font-weight: 600;
 }
