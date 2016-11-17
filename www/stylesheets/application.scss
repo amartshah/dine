@@ -3,12 +3,12 @@ $ios-theme-color: #1b75bc;
 
 #main-app {
     height: 700px;
-    background: #1b75bc;
-    background: -webkit-linear-gradient(left top, #1b75bc, #e8e9ea);
-    background: -o-linear-gradient(bottom right, #1b75bc, #e8e9ea);
-    background: -moz-linear-gradient(bottom right, #1b75bc, #e8e9ea);
-    background: linear-gradient(to bottom right, #1b75bc, #e8e9ea);
-    background-color: #1b75bc;
+    background: $ios-theme-color;
+    background: -webkit-linear-gradient(left top, $ios-theme-color, #e8e9ea);
+    background: -o-linear-gradient(bottom right, $ios-theme-color, #e8e9ea);
+    background: -moz-linear-gradient(bottom right, $ios-theme-color, #e8e9ea);
+    background: linear-gradient(to bottom right, $ios-theme-color, #e8e9ea);
+    background-color: $ios-theme-color;
 }
 
 h4 {
