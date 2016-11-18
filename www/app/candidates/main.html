@@ -33,7 +33,8 @@
                 </button>
             </div>
             <div id='swiping-zone' ng-class="{'blur-me':match}">
-                <div class='face-card' ng-repeat="candidate in candidates">
+                
+                <div class='face-card' ng-class="{'i-like':candidate.liked}" ng-repeat="candidate in candidates">
                     <!-- TODO - standardize size of cards -->
                     <div class='row'>
                         <div class="col-xs-3">
@@ -60,6 +61,8 @@
                                 </button>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
