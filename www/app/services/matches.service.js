@@ -15,6 +15,6 @@ appServices.factory('MatchesService', [function() {
 
     return {
         addMatch: addMatch,
-        getMatches: addMatch
+        getMatches: getMatches
     }
 }]);

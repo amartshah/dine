@@ -17,7 +17,8 @@ var CandidatesController = function($scope, $location, $timeout,CandidatesServic
     }
 
 
-    $scope.goToMatches = function(){
+    $scope.goToMatches = function() {
+        $scope.$parent.changeTabs(2);
         $location.path("/matches");
     }
 
@@ -32,6 +33,7 @@ var CandidatesController = function($scope, $location, $timeout,CandidatesServic
                 for(var i = 0; i<value.data.length; i ++){
                     if(value.data[i].photo_link == null || value.data[i].photo_link == undefined){
                         value.data[i].photo_link = "http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg";
+                        value.data[i].index = i;
                     }
                 }
 
@@ -56,8 +58,9 @@ var CandidatesController = function($scope, $location, $timeout,CandidatesServic
                 if(result == "MATCH"){
                     $scope.match = true;
                     MatchesService.addMatch(candidate);
+                    $scope.candidates.splice(candidate.index, 1);
                 }
-                console.log(data);
+                console.log(result);
             },
             function(error){
                 console.log("Like didn't work");

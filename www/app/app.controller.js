@@ -21,7 +21,7 @@ var AppController = function($scope, $location, NavBarService, UserService){
             index: 0
         },
         {
-            text: 'Candidates',
+            text: 'DiNers',
             link: '#candidates',
             default_link: "#candidates",
             class: 'passive',
