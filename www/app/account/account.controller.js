@@ -39,6 +39,11 @@ var AccountController = function($scope, $window, UserService) {
             function(value) {
                 $scope.user = value.data[0];
                 $scope.state.working = false;
+                var keys = ['education', 'industry', 'job_title', 'employer'];
+
+                for(var i = 0; i < keys.length; i++){
+                    $scope.user[key] = $scope.user[key].charAt(0).toUpperCase() + $scope.user[key].substring(1);
+                }
 
 
             },
