@@ -1,5 +1,6 @@
 $grey-background: #e8e9ea;
 $ios-theme-color: #1b75bc;
+$dark-grey: #484746;
 
 #main-app {
     height: 700px;
@@ -42,6 +43,32 @@ h4 {
         -webkit-transform: rotate(359deg);
         transform: rotate(359deg);
     }
+}
+
+.register-form{
+  margin-right: 30px;
+  margin-left: 30px;
+  text-align: center;
+  color: white;
+
+  .btn{
+    width: 100%;
+    color: white;
+    background-color: $dark-grey;
+  }
+
+  h3{
+    font-weight: 200;
+  }
+
+  h4{
+    font-weight: 200;
+    margin-top: 30px;
+  }
+
+  h2{
+    font-weight: 200;
+  }
 }
 
 .form-page {
