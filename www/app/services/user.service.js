@@ -19,7 +19,8 @@ appServices.factory('UserService', ['$http', "ConfigService", '$rootScope', func
             industry: "Technology",
             education: "Self-educated",
             photo_link: "https://s3.us-east-2.amazonaws.com/dine-profile-photos/mark-zuckerberg1.jpg",
-            job_title: "Founder"
+            job_title: "Founder",
+            username: "zuck"
         };
 
         $rootScope.loggedInUser = user;

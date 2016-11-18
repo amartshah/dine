@@ -1,5 +1,5 @@
 /* recommended */
-var CandidatesController = function($scope, $timeout,CandidatesService, UserService) {
+var CandidatesController = function($scope, $location, $timeout,CandidatesService, UserService, LikeService, MatchesService) {
     $scope.test = "Candidates Page Coming Soon!";
     $scope.state = {
         error: undefined,
@@ -16,6 +16,14 @@ var CandidatesController = function($scope, $timeout,CandidatesService, UserServ
 
     }
 
+
+    $scope.goToMatches = function(){
+        $location.path("/matches");
+    }
+
+    $scope.removeMatchOverlay = function(){
+        $scope.match = false;
+    }
     $scope.getNextSetOfMatches = function() {
         $scope.state.working = true;
         CandidatesService.getNextSetOfMatches(
@@ -41,10 +49,38 @@ var CandidatesController = function($scope, $timeout,CandidatesService, UserServ
 
     $scope.like = function(candidate) {
         candidate.liked = true;
+
+        LikeService.like($scope.user.username, candidate.username,
+            function(result){
+                console.log("Like Worked");
+                if(result == "MATCH"){
+                    $scope.match = true;
+                    MatchesService.addMatch(candidate);
+                }
+                console.log(data);
+            },
+            function(error){
+                console.log("Like didn't work");
+                candidate.liked = false;
+                console.log(error);
+            }
+        )
     }
 
     $scope.unlike = function(candidate) {
         candidate.liked = false;
+
+        LikeService.unlike($scope.user.username, candidate.username,
+            function(result){
+                console.log("Unlike Worked");
+                console.log(result);
+            },
+            function(error){
+                console.log("Unlike didn't work");
+                candidate.liked = true;
+                console.log(error);
+            }
+        )
     }
 
 
@@ -61,4 +97,4 @@ angular
     .module('dine.candidates')
     .controller("CandidatesController", CandidatesController);
 
-CandidatesController.$inject = ['$scope', "$timeout","CandidatesService", "UserService"];
+CandidatesController.$inject = ['$scope', "$location", "$timeout","CandidatesService", "UserService", "LikeService", "MatchesService"];

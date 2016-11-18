@@ -15,7 +15,7 @@ appServices.factory('LikeService', ['$http', "ConfigService", 'UserService',func
 
         $http(req).then(
             function(value) {
-                success(user);
+                success(value.data.result);
             },
             function(error) {
                 failure(error);
@@ -26,7 +26,7 @@ appServices.factory('LikeService', ['$http', "ConfigService", 'UserService',func
 
     var unlike = function(person_unliking, person_being_unliked, success, failure) {
         var req = {
-                method: 'DELETE',
+                method: 'POST',
                 url: ConfigService.url + "/unlike",
                 params: {
                     person_unliking: person_unliking,
