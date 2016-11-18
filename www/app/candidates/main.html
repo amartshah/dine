@@ -49,12 +49,13 @@
                             </h5>
                         </div>
                         <div class='col-xs-2 like-button-col'>
-<!--                                 <button class='btn btn-danger ' ng-click="swipeLeft()">
-                                    <span class = "glyphicon glyphicon-remove"></span>
-                                </button> -->
-
-                                <button class='btn btn-success' ng-click="swipeRight()">
+                                <button ng-if='!candidate.liked' class='btn btn-success' ng-click="like(candidate)">
                                     <span class = "glyphicon glyphicon-ok">
+                                    </span>
+                                </button>
+
+                                <button ng-if='candidate.liked' class='btn btn-danger' ng-click="unlike(candidate)">
+                                    <span class = "glyphicon glyphicon-remove">
                                     </span>
                                 </button>
                         </div>

@@ -39,30 +39,14 @@ var CandidatesController = function($scope, $timeout,CandidatesService, UserServ
     }
 
 
-    $scope.swipeRight = function() {
-        CandidatesService.swipeRight();
-        if($scope.currentCandidate.likes){
-            $scope.match = $scope.currentCandidate
-        }else{
-            $scope.moveToNextCandidate();
-        }
+    $scope.like = function(candidate) {
+        candidate.liked = true;
     }
 
-    $scope.swipeLeft = function() {
-        CandidatesService.swipeLeft();
-        $scope.moveToNextCandidate();
+    $scope.unlike = function(candidate) {
+        candidate.liked = false;
     }
 
-    // $scope.moveToNextCandidate = function() {
-    //     //TODO - load new candidates when a few left
-    //     //TODO - handle when there are no more candidates
-    //     $scope.currentCandidate = $scope.candidates.pop();
-    //     $scope.match = undefined;
-    //     if (currentCandidate == undefined) {
-    //         $scope.state.working = true;
-	// 		//TODO -- get more peeps
-    //     }
-    // }
 
     $scope.viewProfile = function(){
         console.log("viewProfile");
