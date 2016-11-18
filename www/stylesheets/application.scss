@@ -3,7 +3,7 @@ $ios-theme-color: #1b75bc;
 $dark-grey: #484746;
 
 #main-app {
-    height: 700px;
+    position: absolute;
     background: $ios-theme-color;
     background: -webkit-linear-gradient(left top, $ios-theme-color, #e8e9ea);
     background: -o-linear-gradient(bottom right, $ios-theme-color, #e8e9ea);
@@ -170,9 +170,16 @@ h4 {
     margin-left: 2%;
 
     #candidate-name {
-        font-size: x-large;
-        text-align: center;
+        font-size: large;
+        text-align: left;
         font-weight: 700;
+        margin-left: -10px;    
+    }
+
+    #candidate-description {
+        text-align: left;
+        margin-left: -10px;
+        margin-right: 14px;
     }
 
     img {
@@ -182,7 +189,7 @@ h4 {
         border-style: solid;
         border-color: #ccc;
         border-width: 1px;
-        margin-left: 8px;
+        margin-left: 3px;
         margin-top: 11px;
     }
 }
@@ -190,8 +197,10 @@ h4 {
 .like-button-col {
     padding-left: 0px;
     .btn {
-        width: 40px;
-        height: 40px;
+        margin-left: -42px;
+        margin-bottom: -73px;
+        width: 60px;
+        height: 60px;
         font-size: large;
         border-color: white;
         border-width: 2px;

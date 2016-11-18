@@ -41,21 +41,17 @@
                         </div>
 
                         <div class="col-xs-7">
-                            <div class='row'>
-                                <p>
-                                    {{candidate.job_title}} at {{candidate.employer}}
-                                </p>
-                            </div>
-                            <div class='row'>
-                                <h4 id='candidate-name'>
-                                    {{candidate.first_name}} {{candidate.last_name}}
-                                </h4>
-                            </div>
+                            <h2 id='candidate-name'>
+                                {{candidate.first_name}} {{candidate.last_name}}
+                            </h2>
+                            <h5 id = 'candidate-description'>
+                                {{candidate.job_title}} at {{candidate.employer}}
+                            </h5>
                         </div>
                         <div class='col-xs-2 like-button-col'>
-                                <button class='btn btn-danger ' ng-click="swipeLeft()">
+<!--                                 <button class='btn btn-danger ' ng-click="swipeLeft()">
                                     <span class = "glyphicon glyphicon-remove"></span>
-                                </button>
+                                </button> -->
 
                                 <button class='btn btn-success' ng-click="swipeRight()">
                                     <span class = "glyphicon glyphicon-ok">
