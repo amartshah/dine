@@ -49,6 +49,9 @@ appServices.factory('UserService', ['$http', "ConfigService", '$rootScope', func
             function(value) {
                 console.log(value)
 				user = value.data[0];
+                if(user.photo_link == null || user.photo_link == undefined){
+                    user.photo_link = "http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg";
+                }
                 success(user);
                 notifyObservers();
             },
