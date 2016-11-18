@@ -8,8 +8,8 @@ angular.module('dine.register', []);
 
 angular.module('dine', ['supersonic',
         'ngRoute',
-			'ngResource',
-			"leaflet-directive",
+        'ngResource',
+        "leaflet-directive",
         "ui.bootstrap",
         'dine.matches',
         'dine.candidates',
