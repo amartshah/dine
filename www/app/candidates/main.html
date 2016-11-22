@@ -33,7 +33,7 @@
                 </button>
             </div>
             <div id='swiping-zone' ng-class="{'blur-me':match}">
-                
+
                 <div class='face-card' ng-class="{'i-like':candidate.liked}" ng-repeat="candidate in candidates">
                     <!-- TODO - standardize size of cards -->
                     <div class='row'>
@@ -55,7 +55,7 @@
                                     </span>
                                 </button>
 
-                                <button ng-if='candidate.liked' class='btn btn-danger' ng-click="unlike(candidate)">
+                                <button ng-if='candidate.liked' class='btn btn-default' ng-click="unlike(candidate)">
                                     <span class = "glyphicon glyphicon-remove">
                                     </span>
                                 </button>

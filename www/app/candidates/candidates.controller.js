@@ -35,6 +35,9 @@ var CandidatesController = function($scope, $location, $timeout,CandidatesServic
                         value.data[i].photo_link = "http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg";
                         value.data[i].index = i;
                     }
+                    if(value.data[i].i_like == true){
+                        value.data[i].liked = true
+                    }
                 }
 
                 $scope.candidates = value.data;
