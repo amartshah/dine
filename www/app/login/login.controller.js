@@ -4,12 +4,14 @@ var LoginController = function($scope, $location,$rootScope, UserService){
         email: undefined,
         password: undefined
     }
+    $scope.working = false;
 
     $scope.error = undefined;
 
     $scope.user = undefined;
 
     $scope.logIn= function(){
+        $scope.working = true;
         UserService.login(
             $scope.loginInfo.email,
             $scope.loginInfo.password,
@@ -17,11 +19,13 @@ var LoginController = function($scope, $location,$rootScope, UserService){
             function(value){
                 $scope.user = UserService.getUser();
                 $rootScope.loggedInUser = UserService.getUser();
+                $scope.working = false;
                 $location.path('/account');
             },
 
             //failureCallback
             function(error){
+                $scope.working = false;
                 $scope.error = error.message;
                 $scope.loginInfo.password =undefined;
             }

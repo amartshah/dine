@@ -11,7 +11,12 @@
         <br>
         <br>
 
-        <form ng-submit="logIn()">
+        <h3 ng-if="working">
+            Logging you in...
+            <span class='glyphicon glyphicon-refresh glyphicon-spin'></span>
+        </h3>
+
+        <form ng-submit="logIn()" ng-if="!working">
             <div class="form-group">
                 <input type="email" class="form-control" id="loginEmail" placeholder="Email" ng-model="loginInfo.email" ng-required="true">
             </div>
@@ -31,8 +36,7 @@
         </div>
 
         <hr />
-
-        <div>
+        <div ng-if="!working">
             <h4>
                 Don't have an account?
             </h4>
