@@ -164,6 +164,7 @@ h4 {
     }
     p{
         text-align: center;
+        margin-bottom: 6px;
     }
 
     .profile-image{
@@ -179,7 +180,7 @@ h4 {
     }
     .profile-card{
         background: $grey-background;
-        border-radius: 10px;
+        border-radius: 35px;
         padding-top: 15px;
         margin-top:90px;
         border-top-right-radius: 100px;
@@ -192,9 +193,8 @@ h4 {
 
     .map{
         width: 100%;
-        height: 261px;
         position: relative;
-        height: 240px;
+        height: 200px;
         margin-top: 10px;
     }
 }
@@ -242,7 +242,7 @@ h4 {
 }
 
 .i-like {
-    box-shadow: 0 0 3pt 6pt #5cb85c;
+    box-shadow: 0 0 3pt 4pt #5cb85c;
 }
 .like-button-col {
     padding-left: 0px;
