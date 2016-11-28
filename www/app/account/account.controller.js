@@ -1,5 +1,7 @@
 /* recommended */
-var AccountController = function($scope, $window, UserService) {
+var AccountController = function($scope, $window, UserService, LocationService) {
+
+    
     $scope.test = "accounts page coming soon";
     $scope.user = UserService.getUser();
     $scope.state = {
@@ -16,6 +18,7 @@ var AccountController = function($scope, $window, UserService) {
 
     $scope.markers = {}
 
+    
     $scope.loc = navigator.geolocation.getCurrentPosition(function(position) {
         $scope.center = {
             lat: position.coords.latitude,
@@ -30,6 +33,13 @@ var AccountController = function($scope, $window, UserService) {
                 focus: true
             }
         }
+
+	if($scope.user) {
+	    LocationService.updateLocation({
+		lat: position.coords.latitude,
+		lon: position.coords.longitude
+	    })
+	}
     });
 
 
@@ -45,7 +55,13 @@ var AccountController = function($scope, $window, UserService) {
                     $scope.user[key] = $scope.user[key].charAt(0).toUpperCase() + $scope.user[key].substring(1);
                 }
 
+                $scope.loc = navigator.geolocation.getCurrentPosition(function(position) {
 
+			LocationService.updateLocation({
+			    lat: position.coords.latitude,
+			    lon: position.coords.longitude
+			})
+		});
             },
             //failureCallback
             function(error) {
@@ -63,4 +79,4 @@ angular
     .module('dine.account')
     .controller("AccountController", AccountController);
 
-AccountController.$inject = ['$scope', "$window", "UserService"];
+AccountController.$inject = ['$scope', "$window", "UserService", "LocationService"];
