@@ -12,6 +12,7 @@ appServices.factory("ConfigService", function() {
         {name: "Consumer Goods"},
         {name: "Corporate"},
         {name: "Education"},
+        {name: "Entertainment"},
         {name: "Finance"},
         {name: "Government"},
         {name: "Legal"},

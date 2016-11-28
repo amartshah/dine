@@ -12,11 +12,12 @@
         <div class='profile-card'>
             <img class='profile-image' ng-src="{{user.photo_link}}" />
 
-            <br>
-            <br>
-            <p>Education: {{user.education}}</p>
-            <p>{{user.job_title}} at {{user.employer}}</p>
-            <p>Industry: {{user.industry}}
+            <div class='text-area'>
+                <p>Education: {{user.education}}</p>
+                <p>{{user.job_title}} at {{user.employer}}</p>
+                <p>Industry: {{user.industry}}</p>
+            </div>
+
         </div>
 
         <leaflet class = "map" lf-center="center" markers="markers" ></leaflet>

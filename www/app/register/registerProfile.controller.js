@@ -9,7 +9,8 @@ var RegisterProfileController = function($scope, $location,$rootScope, UserServi
         employer: undefined,
         industry: undefined,
         job_title: undefined,
-        education: undefined
+        education: undefined,
+        phone_number: undefined
     }
     var errorHandler = function(){
         $scope.error = error.message;
