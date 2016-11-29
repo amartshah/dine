@@ -9,6 +9,7 @@ var CandidatesController = function($scope, $location, $timeout,CandidatesServic
     $scope.candidates = [];
     $scope.user = UserService.getUser();
     var tryCount = 5;
+    $scope.food_mood;
 
     var init = function(){
         $scope.state.working = true;
@@ -25,6 +26,27 @@ var CandidatesController = function($scope, $location, $timeout,CandidatesServic
     $scope.removeMatchOverlay = function(){
         $scope.match = false;
     }
+
+    $scope.changeFoodMood = function(){
+        params = {
+            key_name: "id",
+            key_value: user.id,
+            updates: [{
+                key: "food_mood",
+                value: $scope.food_mood
+            }]
+        }
+        UserService.updateAccount(
+            params,
+            function(data){
+                console.log(data);
+            },
+            function(error){
+                console.log(error);
+            }
+        )
+    }
+
     $scope.getNextSetOfMatches = function() {
         $scope.state.working = true;
         CandidatesService.getNextSetOfMatches(

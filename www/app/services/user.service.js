@@ -20,19 +20,21 @@ appServices.factory('UserService', ['$http', "ConfigService", '$rootScope', func
             education: "Self-educated",
             photo_link: "https://s3.us-east-2.amazonaws.com/dine-profile-photos/mark-zuckerberg1.jpg",
             job_title: "Founder",
+            food_mood: "Looking for the best deep dish in Chicago!",
             username: "zuck"
         };
 
         $rootScope.loggedInUser = user;
     }
     else{
-    user = {
-        email: undefined,
-        first_name: undefined,
-        last_name: undefined,
-        id: -1
-    };
+        user = {
+            email: undefined,
+            first_name: undefined,
+            last_name: undefined,
+            id: -1
+        };
     }
+
     var observerCallbacks = [];
 
     var login = function(email, password, success, failure) {
