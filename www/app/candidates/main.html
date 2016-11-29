@@ -67,12 +67,12 @@
                             <h5 id = 'candidate-description'>
                                 {{candidate.job_title}} at {{candidate.employer}}
                             </h5>
-                            <p ng-if="candidate.food_mood" id = 'candidate-food-mood'>
+                            <h5 ng-if="candidate.food_mood" id = 'candidate-food-mood'>
                                 {{candidate.food_mood}}
-                            </p>
-                            <p ng-if="!candidate.food_mood" id = 'candidate-food-mood'>
+                            </h5>
+                            <h5 ng-if="!candidate.food_mood" id = 'candidate-food-mood'>
                                 Open to anything!
-                            </p>
+                            </h5>
                         </div>
                         <div class='col-xs-2 like-button-col'>
                                 <button ng-if='!candidate.liked' class='btn btn-success' ng-click="like(candidate)">
