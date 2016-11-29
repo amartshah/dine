@@ -4,7 +4,7 @@ var appServices = angular.module('dine.services');
 appServices.factory("ConfigService", function() {
     var backendUrl = "https://eecs-394-dine-backend.herokuapp.com";
 
-    var env = "dev";
+    var env = "prod";
     var industries = [
         {name: "Agriculture"},
         {name: "Arts"},
