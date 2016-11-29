@@ -10,7 +10,6 @@ var AppController = function($scope, $location, NavBarService, UserService){
     };
     $scope.backText = undefined;
     $scope.isLoggedIn = UserService.isLoggedIn();
-
     $scope.tabs = [
         {
             text: 'Account',
@@ -25,15 +24,15 @@ var AppController = function($scope, $location, NavBarService, UserService){
             link: '#candidates',
             default_link: "#candidates",
             class: 'passive',
-            glyph: "glyphicon glyphicon-th-list",
+            glyph: "glyphicon glyphicon-cutlery",
             index: 1
         },
         {
-            text: 'Matches',
+            text: 'Connect',
             link: '#matches',
             default_link: "#matches",
             class: 'passive',
-            glyph: "glyphicon glyphicon-cutlery",
+            glyph: "glyphicon glyphicon-phone",
             index: 2
         }
     ];

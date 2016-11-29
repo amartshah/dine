@@ -71,6 +71,30 @@ h4 {
   }
 }
 
+.matches-form{
+  text-align: center;
+  color: white;
+
+  .btn{
+    width: 100%;
+    color: white;
+    background-color: $dark-grey;
+  }
+
+  h3{
+    font-weight: 200;
+  }
+
+  h4{
+    font-weight: 200;
+    margin-top: 15px;
+  }
+
+  h2{
+    font-weight: 200;
+  }
+}
+
 .form-page {
     margin-top: 15px;
 
@@ -240,6 +264,47 @@ h4 {
         margin-top: 11px;
     }
 }
+
+.matches-face-card {
+    margin-top: 5%;
+    background: #ddd;
+    border-color: #ccc;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 12px;
+    width: 96%;
+    height: 100px;
+    margin-left: 2%;
+
+    #candidate-name {
+        font-size: large;
+        text-align: left;
+        font-weight: 700;
+        margin-left: -10px;
+    }
+
+    #candidate-description {
+        text-align: left;
+        margin-left: -10px;
+    }
+
+    #candidate-phone {
+        text-align: left;
+        margin-left: -10px;
+    }
+
+    img {
+        width: 70px;
+        height: 70px;
+        border-radius: 100px;
+        border-style: solid;
+        border-color: #ccc;
+        border-width: 1px;
+        margin-left: 3px;
+        margin-top: 11px;
+    }
+}
+
 
 .i-like {
     box-shadow: 0 0 3pt 4pt #5cb85c;

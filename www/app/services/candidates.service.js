@@ -45,9 +45,6 @@ appServices.factory('CandidatesService', ["$http", "UserService", "ConfigService
         console.log("swipe left");
     }
 
-
-
-
     return {
         getNextSetOfMatches: getNextSetOfMatches,
         swipeRight: swipeRight,
