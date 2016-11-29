@@ -64,6 +64,9 @@
                             <h5 id = 'candidate-description'>
                                 {{candidate.job_title}} at {{candidate.employer}}
                             </h5>
+                            <p id = 'candidate-food-mood'>
+                                {{candidate.food_mood}}
+                            </p>
                         </div>
                         <div class='col-xs-2 like-button-col'>
                                 <button ng-if='!candidate.liked' class='btn btn-success' ng-click="like(candidate)">
