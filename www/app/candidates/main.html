@@ -18,7 +18,7 @@
                 Refresh
             </button>
         </div> -->
-        <div class="candidates-form">
+        <div class="candidates-form" ng-if="user.food_mood == undefined || state.editing_food_mood">
             <h2>
                 What's your food mood?
             </h2>
@@ -32,12 +32,20 @@
                [ng-pattern="string"]
                [ng-change="string"]
                [ng-trim="boolean"]>
-            <button class='btn btn-primary' >
-                                    <span class = "glyphicon glyphicon-edit">
-                                    </span>
 
             <button class='btn btn-primary' ng-click = "changeFoodMood()">
                     Save
+                </button>
+        </div>
+        <div class="candidates-form" ng-if="!(user.food_mood == undefined || state.editing_food_mood)">
+            <h2>
+                What's your food mood?
+            </h2>
+            <p>
+                {{user.food_mood}}
+            </p>
+            <button class='btn pull-right btn-primary' id='edit-button' ng-click = "changeStateToEdit()">
+                    <span class = "glyphicon glyphicon-edit"></span>
                 </button>
         </div>
 

@@ -3,7 +3,8 @@ var CandidatesController = function($scope, $location, $timeout,CandidatesServic
     $scope.test = "Candidates Page Coming Soon!";
     $scope.state = {
         error: undefined,
-        working: false
+        working: false,
+        editing_food_mood: false
     }
     $scope.match = undefined;
     $scope.candidates = [];
@@ -36,10 +37,12 @@ var CandidatesController = function($scope, $location, $timeout,CandidatesServic
                 value: $scope.user.food_mood
             }]
         }
+        $scope.state.editing_food_mood = false;
         UserService.updateUser(
             params,
             function(data){
                 console.log(data);
+
             },
             function(error){
                 console.log(error);
@@ -114,6 +117,10 @@ var CandidatesController = function($scope, $location, $timeout,CandidatesServic
 
     $scope.viewProfile = function(){
         console.log("viewProfile");
+    }
+
+    $scope.changeStateToEdit = function(){
+        $scope.state.editing_food_mood = true;
     }
 
 
