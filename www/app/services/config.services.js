@@ -26,9 +26,12 @@ appServices.factory("ConfigService", function() {
         {name: "Transportation"}
     ]
 
+    var mileage = 5000;
+    
     return {
         url: backendUrl,
         industries: industries,
-        env: env
+        env: env,
+	mileage: mileage
     }
 })

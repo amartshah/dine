@@ -21,7 +21,8 @@ appServices.factory('CandidatesService', ["$http", "UserService", "ConfigService
             method: 'GET',
             url: ConfigService.url + "/candidate",
             params: {
-                userId: user.id
+                userId: user.id,
+		miles: ConfigService.mileage
             }
         }
 
