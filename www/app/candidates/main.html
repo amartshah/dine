@@ -67,8 +67,11 @@
                             <h5 id = 'candidate-description'>
                                 {{candidate.job_title}} at {{candidate.employer}}
                             </h5>
-                            <p id = 'candidate-food-mood'>
+                            <p ng-if="candidate.food_mood" id = 'candidate-food-mood'>
                                 {{candidate.food_mood}}
+                            </p>
+                            <p ng-if="!candidate.food_mood" id = 'candidate-food-mood'>
+                                Open to anything!
                             </p>
                         </div>
                         <div class='col-xs-2 like-button-col'>
