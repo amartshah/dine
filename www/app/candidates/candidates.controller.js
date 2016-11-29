@@ -9,7 +9,7 @@ var CandidatesController = function($scope, $location, $timeout,CandidatesServic
     $scope.candidates = [];
     $scope.user = UserService.getUser();
     var tryCount = 5;
-    $scope.food_mood;
+    $scope.food_mood = $scope.user.food_mood;
 
     var init = function(){
         $scope.state.working = true;
@@ -30,13 +30,13 @@ var CandidatesController = function($scope, $location, $timeout,CandidatesServic
     $scope.changeFoodMood = function(){
         params = {
             key_name: "id",
-            key_value: user.id,
+            key_value: $scope.user.id,
             updates: [{
                 key: "food_mood",
                 value: $scope.food_mood
             }]
         }
-        UserService.updateAccount(
+        UserService.updateUser(
             params,
             function(data){
                 console.log(data);

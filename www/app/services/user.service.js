@@ -101,6 +101,10 @@ appServices.factory('UserService', ['$http', "ConfigService", '$rootScope', func
             }
         }
 
+        for(var i = 0; i < info.updates.length; i ++){
+            user[updates.key] = user[updates.value];
+        }
+
         $http(req).then(
             function(value) {
                 console.log(value);
