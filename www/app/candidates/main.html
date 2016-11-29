@@ -18,6 +18,22 @@
                 Refresh
             </button>
         </div> -->
+        <div class="candidates-form">
+            <h2>
+                What's your food mood?
+            </h2>
+            <input type="text" ng-model="string" placeholder = "type text here..."
+               [name="string"]
+               [required="string"]
+               [ng-required="string"]
+               [ng-minlength="number"]
+               [ng-maxlength="number"]
+               [pattern="string"]
+               [ng-pattern="string"]
+               [ng-change="string"]
+               [ng-trim="boolean"]>
+        </div>
+
         <div>
             <div ng-if='match' id='match-overlay'>
                 <h1>
