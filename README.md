@@ -22,8 +22,11 @@ A page should popup in your browser. It contains links to the AppGyver Scanner f
 
 ## Deploy
 
-run `steroids connect` in your terminal. A page should popup in your browser. Select the "Cloud" button at the top of the page. Under "App Details", select "Deploy to cloud". To share your app, select "Open cloud share page". A new page will be opened with a QR code for AppGyver to run DiNe. You can send the url of this page to other people and they will be able to run the app by opening the url and scanning the QR code with AppGyver 
+Run `steroids connect` in your terminal. A page should popup in your browser. Select the "Cloud" button at the top of the page. Under "App Details", select "Deploy to cloud". To share your app, select "Open cloud share page". A new page will be opened with a QR code for AppGyver to run DiNe. You can send the url of this page to other people and they will be able to run the app by opening the url and scanning the QR code with AppGyver 
 
+## Backend
+
+[All code for the backend is located at the dine_backend repository](https://github.com/eecs394-f16/dine_backend). The backend is hosted by [heroku](https://www.heroku.com/home) and uses [node](https://nodejs.org/en/) and [express 4](http://expressjs.com/). The database is [Postgresql 9.5](https://www.postgresql.org/) 
 
 ## Contributors
 
